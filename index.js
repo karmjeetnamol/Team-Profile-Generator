@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
-const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const fs = require("fs");
 const path = require("path");
-//const OUTPUT_DIR = path.resolve(__dirname, "output")
-//const outputPath = path.join(OUTPUT_DIR, "team.html")
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 const teamMembers = [];
 
 const promptManager = () => {
@@ -14,8 +14,8 @@ const promptManager = () => {
             type: 'input',
             name: 'name',
             messege: 'What is the name of your employee?(Required)',
-            validate: nameInput => {
-                if (nameInput) {
+            validate: employee => {
+                if (employee) {
                     return true;
                 } else {
                     console.log('Please enter your employee name!');
@@ -144,12 +144,12 @@ const promptEngineer = () => {
         {
             type: 'input',
             name: 'githubUsername',
-            message: 'Enter your github username (Required)',
+            message: 'Enter your Github username. (Required)',
             validate: githubUsername => {
                 if (githubUsername) {
                     return true;
                 } else {
-                    console.log('Please enter your github username!');
+                    console.log('Please enter your Github username!');
                     return false;
                 }
             }
@@ -187,13 +187,13 @@ return inquirer.prompt([
     },
     {
         type: 'input',
-        name: 'internId',
-        message: 'Enter your intern ID (Required)',
-        validate: internId => {
-            if (internId) {
+        name: 'employeeId',
+        message: 'Enter your employee ID (Required)',
+        validate: employeeId => {
+            if (employeeId) {
                 return true;
             } else {
-                console.log('Please enter your intern ID!');
+                console.log('Please enter your employee ID!');
                 return false;
             }
         }
@@ -239,10 +239,10 @@ const buildTeam = () => {
     ===============
     `);
 
-  //  if (!fs.existsSync(OUTPUT_DIR)) {
-      //  fs.mkdirSync(OUTPUT_DIR)
-   // }
-   // fs.writeFileSync(outputPath, genereteSite(teamMembers),"utf-8")
+   if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, generateSite(teamMembers),"utf-8");
 }
 
 promptManager();
