@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const teamMembers = [];
 
 const promptManager = () => {
+    console.log("welcome to my page")
     return inquirer.prompt([
         {
             type: 'input',
@@ -188,13 +189,13 @@ return inquirer.prompt([
     },
     {
         type: 'input',
-        name: 'employeeId',
-        message: 'Enter your employee ID (Required)',
-        validate: employeeId => {
-            if (employeeId) {
+        name: 'internId',
+        message: 'Enter your intern ID (Required)',
+        validate: internId => {
+            if (internId) {
                 return true;
             } else {
-                console.log('Please enter your employee ID!');
+                console.log('Please enter your intern ID!');
                 return false;
             }
         }
