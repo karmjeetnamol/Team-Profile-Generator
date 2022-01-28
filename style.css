@@ -1,0 +1,42 @@
+class{
+    color: white;
+    background-color: tomato;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 2cm;
+    margin: 15px;
+    padding: 10px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    padding: 10px;
+}
+
+.card {
+    padding: 10px;
+    margin: 15px;
+
+}
+
+
+.card-header {
+    color: white;
+    background-color: blue;
+}
+
+.list-group {
+    color: black;
+}
+
+.list-group-item {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+#email {
+    color: blue;
+}

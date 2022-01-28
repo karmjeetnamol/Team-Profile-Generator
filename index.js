@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateHtml = require('./util/generateHtml.js');
 const fs = require("fs");
 const path = require("path");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
@@ -242,7 +243,7 @@ const buildTeam = () => {
    if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFileSync(outputPath, generateSite(teamMembers),"utf-8");
+    fs.writeFileSync(outputPath, generateHtml(teamMembers),"UTF-8");
 }
 
 promptManager();
